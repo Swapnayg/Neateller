@@ -1,0 +1,245 @@
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'assets/frontend/css/bootstrap.min.css' %}">
+<script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
+<script src='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'></script>
+<style>
+/* Slider */
+.section-service .slick-slider
+{
+    position: relative;
+
+    display: block;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.section-service .slick-list
+{
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+.section-service .slick-list:focus
+{
+    outline: none;
+}
+.section-service .slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.section-service .slick-slider .slick-track,
+.section-service .slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.section-service .slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+}
+.section-service .slick-track:before,
+.section-service .slick-track:after
+{
+    display: table;
+
+    content: '';
+}
+.section-service .slick-track:after
+{
+    clear: both;
+}
+.section-service .slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.section-service .slick-slide
+{
+    display: none;
+    float: left;
+
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .section-service .slick-slide
+{
+    float: right;
+}
+.section-service .slick-slide img
+{
+    display: block;
+}
+.section-service .slick-slide.slick-loading img
+{
+    display: none;
+}
+.section-service .slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.section-service .slick-initialized .slick-slide
+{
+    display: block;
+}
+.section-service .slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.section-service .slick-vertical .slick-slide
+{
+    display: block;
+
+    height: auto;
+
+    border: 1px solid transparent;
+}
+.section-service .slick-arrow.slick-hidden {
+    display: none;
+}
+
+.section-service .slider {
+  margin: 30px auto 50px;
+}
+
+.section-service .image {
+  padding: 10px;
+}
+
+.section-service img {
+  border: 5px solid #FFF;
+  display: block;
+  width: 100%;
+}
+.section-service .slick-slide
+{
+  height: auto;
+}
+.section-service .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+</style>
+<script>
+  $(document).ready(function() {
+  var $slider = $('.slider');
+  $slider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {   
+    setTimeout(function(){
+        $('.slider').width($('.slick-list').width() -203);
+      },0)
+  });
+  
+  $slider.slick({
+    dots: false,
+      lazyLoad: false,
+      infinite: false,
+      speed: 750,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      initialSlide: 0,
+      focusOnSelect: true,
+      responsive: '',
+      arrows: false,
+      accessibility: true,
+      onInit : () => {
+        setTimeout(function(){
+        $('.slider').width($('.slick-list').width() -203);
+      },0);
+      }
+  });  
+//   window.addEventListener("load", () => {
+//    setTimeout(function(){$('.slider').slick("refresh");}, 5000);
+// });
+});
+</script>
+<div class="row justify-content-center">
+
+  <div class="container">
+    {% for s in services %} 
+    <div class="row section-service">
+        <div class="section-title">
+            <h3 class="title">{{s.name}}</h3>
+        </div>
+        {% if s.service_set %}
+        {% if s.service_set.all|length > 3 %}
+        
+        <div class="row justify-content-center">
+          <div class="col-12">
+              <div class="slider">
+                {% for subsub_cat in s.service_set.all %}
+                {% if subsub_cat.isActive %}
+                <div class="image">
+                    <a href="/service/{{subsub_cat.page}}"><img class="" src="media/{{subsub_cat.image}}" alt=""></a>
+                    <div class="item-text">
+                        <h4>{{ subsub_cat.name }}</h4>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
+          </div>
+        </div>
+        {% else %}
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="slider">
+              {% for subsub_cat in s.service_set.all %}
+              {% if subsub_cat.isActive %}
+              <div class="image">
+                  <a href="/service/{{subsub_cat.page}}"><img class="" src="media/{{subsub_cat.image}}" alt=""></a>
+                  <div class="item-text">
+                      <h4>{{ subsub_cat.name }}</h4>
+                  </div>
+              </div>
+              {% endif %}
+              {% endfor %}
+              {% for subsub_cat in s.service_set.all %}
+              {% if subsub_cat.isActive %}
+              <div class="image">
+                  <a href="/service/{{subsub_cat.page}}"><img class="" src="media/{{subsub_cat.image}}" alt=""></a>
+                  <div class="item-text">
+                      <h4>{{ subsub_cat.name }}</h4>
+                  </div>
+              </div>
+              {% endif %}
+              {% endfor %}
+          </div>
+          </div> 
+        </div>
+        {% endif %}
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% load static %}
+{% block contentarea%}
+<script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
+<link rel="stylesheet" href="{% static 'assets/frontend/css/bootstrap.min.css' %}">
+<style>
+.pdfdiv
+{
+    float: right;
+    padding: 0px;
+    margin: 0px;
+    text-align: right;
+}
+.submit-btn,.import-file-upload
+{
+    background-color: #e424b7;
+    padding: 14px 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid #fff;
+    cursor: pointer;
+    border-radius: 13px;
+    font-size: 14px;
+}
+.submit-btn:hover,.import-file-upload:hover{
+    background-color: #e9c962;
+    color: black;
+}
+input[type="file"] {
+  display: none;
+}
+</style>
+<script>
+    function fileOnchangeevnent(ev)
+    {
+        id=$(ev).attr('id');
+		filename = ev.files[0];
+		var fd = new FormData();
+		var files = $('#'+id)[0].files;
+		if(files.length > 0 ){
+		    fd.append('file',files[0]);
+            fd.append('confirmId',$("#orderconfirm_id").val());
+			var xhr=new XMLHttpRequest();
+			xhr.open("POST","/invoice_savePdf/",true);
+			xhr.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+				     if (xhr.status === 200) {
+					    var data=xhr.responseText;
+                        if(data == "sucess")
+                        {
+                            alert("Invoice Updated Successfully.");
+                            const myTimeout = setTimeout(location.reload(), 7000);
+                        }  
+				     } 
+				     else {
+				         console.log("Error", xhr.statusText);
+				     }
+				}};
+			xhr.send(fd);
+		}
+		else{
+			alert("Please select a file.");
+		 }
+    }
+    function sendemailFunction(ev)
+    {
+       confirmId =  $("#orderconfirm_id").val();
+       $.ajax({
+            type:"POST",
+            url: "/invoice_sendPdf/",
+            data: {"u_confirmid":confirmId},
+            success: function( data ) 
+            {  
+                if(data == "sucess")
+                {
+                    alert("Invoice Sent Successfully.");
+                }
+            }
+        });  
+    }
+</script>
+<section class="why-choose-use-area padding-top-50 padding-bottom-20">
+    <div class="container">
+        <div class="row">
+            <input type="hidden" id="orderconfirm_id" name="orderconfirm_id" value="{{confirmId}}">
+            <div class="col-xl-9 col-sm-12 col-12"></div>
+            <div class="col-xl-3 col-sm-12 col-12 pdfdiv">
+                <label for="btn_upload_pdf" class="import-file-upload">
+                    <i class="fab fa-upload"></i> Upload PDF
+                </label>
+                <input id="btn_upload_pdf" type="file" accept=".pdf" onChange="fileOnchangeevnent(this);" />
+                <input type="submit" id="btn_send_email" value="Send Email" class="submit-btn" onclick="sendemailFunction(this);">
+            </div>
+        </div>   
+        <div class="row" style="height: 100%;">
+            <iframe src="http://127.0.0.1:8000/media/invoice/invoice{{invoiceurl}}#toolbar=0"  frameborder="0" style="width: 100%;height: 100%;border: none;background-color: white;"></iframe>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

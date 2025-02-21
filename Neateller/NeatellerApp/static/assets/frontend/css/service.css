@@ -1,0 +1,191 @@
+
+:root {
+    --main-color-one: #8d006b;
+    --main-color-two: #e424b7;
+    --secondary-color: #e9c962;
+    --heading-color: #8d006b;
+    --paragraph-color: #5f5f5f;
+    --heading-font: "Poppins",sans-serif;
+    --body-font:"Open Sans",sans-serif;
+
+}
+.service_mega_menu
+{
+    overflow: auto !important;
+    height: 400px !important;
+}
+.service_menu
+{
+    background: #fff;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 20%);
+    margin-bottom: 15px;
+}
+.service_menu ul{
+    margin: 0;
+    padding: 5px;
+    overflow: hidden;
+    overflow-x: auto;
+}
+.service_menu ul li{
+    display: inline-block;
+    list-style: none;
+}
+.service_menu ul li.active{
+    background: #e9e9e9!important;
+}
+.service_menu ul li .mat-focus-indicator
+{
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
+    overflow: visible;
+    color: inherit;
+    background: transparent;
+}
+.service_mega_menu::-webkit-scrollbar-thumb {
+  background-color: gainsboro;
+  border: 4px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;  
+}
+.search-result
+{
+    width: 80%;
+}
+.serv-desc h3{
+    font-size: 22px;
+}
+.serv-desc
+{
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.1);
+    margin-top: 20px;
+}
+.serv-desc .section-title
+{
+    margin: 0;
+    padding: 8px 3px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.serv-desc h5{
+    font-weight: 300;
+    font-size: 20px;
+}
+.search-result input{
+    height: 50px;
+}
+.serv-desc .icon
+{
+    color: green;
+    font-size: 21px;
+}
+.ratting_strip
+{
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #000;
+}
+.rate_rev{
+    margin: 0 8px;
+}
+.usertitle
+{
+    margin: 0;
+}
+.usertitle h5
+{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.userrev_text
+{
+    padding: 0;
+    margin-left: 60px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+.user_revpic
+{
+    display: flex;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    background: #f2f2f2;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    line-height: 45px;
+}
+.user_revpic span
+{
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+.customerreviews ul
+{
+    margin: 0;
+    padding: 20px;
+}
+.customerreviews ul li
+{
+    list-style: none;
+    margin-bottom: 25px;
+}
+.service-area img
+{
+    border-radius: 15px;
+}
+#ser_img p
+{
+    text-align: center;
+    margin-top: 2% !important;
+}
+.service-area .booknow_btn
+{
+    position: absolute;
+    top: 7px;
+    right: 25px;
+    background: #00b300;
+    color: #fff !important;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+}
+
+.service_mega_menu::-webkit-scrollbar {
+  width: 16px;
+}
+#footer1 h5{
+    color: #f3e721;
+}
+.link-reviews h6
+{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;
+}
+.user_revlist
+{
+    display: flex;
+    align-items: center;
+}

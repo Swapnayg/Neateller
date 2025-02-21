@@ -1,0 +1,126 @@
+{% include  'base.html' %}
+{% load static %}
+{% block contentarea%}
+<title>SkillY - Payment and refund policy</title>
+<style>
+.breadcrumb-inner p
+{
+    width: 30% !important;
+}
+.desc
+{
+    padding-left: 1%;
+    padding-top: 2%;
+}
+.desc p a {
+    text-decoration: underline;
+    color: #007bff;
+}
+@media screen and (max-width: 576px) {
+    .breadcrumb-inner p
+    {
+        width: 70% !important;
+    }
+}
+</style>
+<!--header-slider-area -->
+<link rel="stylesheet" href="{% static 'assets/frontend/css/service.css' %}">
+<div class="breadcrumb-area" style="background-image: url('static/assets/uploads/services/refund.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-inner">
+                    <p>     Payment and refund policy
+</p>
+                    <h2 class="page-title">     Payment and refund policy
+</h2>
+                    <ul class="page-list">
+                        <li><a href="/">Home</a></li>
+                                                                                                                                                                                <li><a href="{% url 'refund' %}">Payment and refund policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="service-area padding-top-50 padding-bottom-50">
+    <div class="container">
+        <div class="row serv-desc" >
+            <div class="col-xl-12">
+                <div class="section-title">
+                    <h3 class="title">Payment and refund policy</h3>
+                </div>
+        </div>
+    </div> 
+        <div class="row serv-desc desc">
+            <div class="row">
+            <div class="col-xl-12">
+                <h3 class="title">Introduction</h3>
+
+                <p>This is Sdz Technical Services LLC’s policy for Payments (“Policy”). This policy applies only to activities Sdz Technical Services LLC (“Company”) engages in on its website skillyservices.com and/or its related mobile applications (“Site”) and does not apply to Company activities that are "offline" or unrelated to the website. Any products or services that a user requests on our Site are referred to as “Service(s)”.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <h3 class="title">Modes of Payment</h3>
+
+                <p>The Site accepts payment by cash or through Visa or Mastercard debit and credit cards for its products and services. Services booked via the Site are also governed by the terms and conditions of respective merchant service providers.</p>
+           
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <h3 class="title">Paying for Services</h3>
+                <h5 class="title">PAYMENT DEDUCTION</h5>
+                <p>We do not own any data, information or material (collectively, “Content”) that you submit on the Services in the course of using the Service. You shall have sole responsibility for the accuracy, quality, integrity, legality, reliability, appropriateness, and intellectual property ownership or right to use of all submitted Content. We may monitor and review the Content on the Services submitted or created using our Services by you. You grant us permission to access, copy, distribute, store, transmit, reformat, display and perform the Content of your user account solely as required for the purpose of providing the Services to you. Without limiting any of those representations or warranties, we have the right, though not the obligation, to, in our own sole discretion, refuse or remove any Content that, in our reasonable opinion, violates any of our policies or is in any way harmful or objectionable. You also grant us the license to use, reproduce, adapt, modify, publish or distribute the Content created by you or stored in your user account for commercial, marketing or any similar purpose.</p>
+
+                <h5 class="title">MULTI-CURRENCY PRICED TRANSACTION</h5>
+                <p>The displayed price and currency selected by you, will be the same price and currency charged to the Card and printed on the Transaction Receipt. Where VAT or optional extras apply, the transaction amount will be shown to the user as “Total to pay”.</p>
+                
+                <h5 class="title">PAYMENT CONFIRMATION</h5>
+                <p>The Site user will receive payment confirmation by email on the email address given at the time of order, through a notification sent in an app, or both. The confirmation will be sent after the payment has been processed as soon as practically possible.</p>
+
+                <h5 class="title">PAYMENT REFUNDS</h5>
+                <p>Should the Company, based on the delivery confirmation of our service partner, charge a user whereas the service was in fact not delivered, the Company will refund the full amount to the user. It is the responsibility of the User to bring such cases to the attention of the Company by emailing support@skillyservices.com within 24 hours of the due date of the scheduled service.</p>
+                <p>Any other refunds including those listed above will be made as credits to the users registered account on Skillyservices or onto the original mode of payment, as may be deemed appropriate by the Company.</p>
+
+                <h3 class="title">Administrative Charges</h3>
+                <p>Users who book services on the Site can manage their Services through the website or mobile apps. It is possible to change the dates, time or the specific requirements of any given service, provided it is done so reasonably in advance before the start of the booked service.</p>
+                <p>Failure to provide sufficient notice when cancelling or changing services may result in administrative fees being charged to the user. These fees are governed by the Cancellations Policy and maybe amended from time to time.</p>
+                <p>By booking the services on the Site you agree to abide by these policies and agree to pay any applicable charges. The Company reserves the right to use any legal means it may have at its disposal to recover such charges or to deny further use of the Site’s Services to the user, as it may deem necessary.</p>
+
+                <h3 class="title">Cancellations Policy</h3>
+                <h5 class="title">LATE CANCELLATIONS & CHANGES</h5>
+                <p>For late cancellations or change requests (late is defined as less than 24 hours before the start of the service);</p>
+                <p>or</p>
+                <h5 class="title">NO SHOWS</h5>
+                <p>Where a customer was not present to avail the scheduled service and as a consequence the service was not delivered;</p>
+                <p>In such cases Administrative charges will apply. Such charges will depend on the type of service which was scheduled.</p>
+                <h5 class="title">PAYMENT OF CHARGES</h5>
+                <p>Any applicable administrative charges will be communicated to the Customer at the time when the request for cancellation or changes is made.</p>
+                <ul>
+                    <li>Charges are deducted at the time of cancellation in case of a late cancellation and for late changes at the time of completion of the delivery of the service.</li>
+                    <li>Charges for No Shows are applied once the Company is notified by its partner suppliers.                    </li>
+                </ul>
+            </div>
+        </div>
+        </div> 
+    </div>
+</div>
+</section>
+<section class="why-choose-use-area padding-top-50 padding-bottom-20">
+    <div class="container">
+        <div class="row">
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+{% include  'footer.html' %}
+
+{% endblock %}
